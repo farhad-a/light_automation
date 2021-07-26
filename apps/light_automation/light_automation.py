@@ -48,7 +48,7 @@ class light_automation(hass.Hass):
         check = self.constraint_check()
         if not check:
             self.log('Lights on')
-            self.call_service("light/turn_on", **self.service_data)
+            self.call_service("homeassistant/turn_on", **self.service_data)
 
     def lights_off(self, kwargs):
         check = self.constraint_check()
@@ -56,7 +56,7 @@ class light_automation(hass.Hass):
             self.log('Lights off')
             # off_service_data = {}
             # off_service_data['entity_id'] = self.service_data['entity_id']
-            self.call_service("light/turn_off", **self.off_service_data)
+            self.call_service("homeassistant/turn_off", **self.off_service_data)
 
     def state_change(self, entity, attribute, old, new, kwargs):
         check = self.constraint_check()
